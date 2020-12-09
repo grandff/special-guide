@@ -18,9 +18,10 @@ class Game extends React.Component{
         games : []
     };    
 
-    getGames = async() => {        
-        const test1 = await axios.post('https://api.igdb.com/v4/games', params, { headers, withCredentials : true });        
-        console.log("fucking usa :: " + test1);        
+    getGames = async() => {                       
+        // igdb 노답이라 그냥 reddit 으로 변경함 ㅎ
+        const test1 = await axios.get('https://www.reddit.com/.json?sort=new&limit=10');                       
+        console.log("fucking usa :: ", test1);        
     };
 
     componentDidMount() {

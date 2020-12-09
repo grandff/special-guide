@@ -1,10 +1,17 @@
-const express = require('express');
+/*
 const path = require('path');
 const app = express();
+const cors = require('cors');
 app.use(express.static(path.join(__dirname, 'build')));
+app.use(cors());
 
 app.get('/ping', function(reg, res){
     return res.send('pong');
+});
+
+app.all('/*', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");    
 });
 
 app.options('https://api.igdb.com/v4/games', (reg, res) => {
@@ -34,4 +41,8 @@ app.get('/', function(reg, res){
     //res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
+
+//app.listen("https://api.igdb.com/v4/games");
 app.listen(process.env.PORT || 8080);
+
+*/
