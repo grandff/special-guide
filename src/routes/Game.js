@@ -3,29 +3,19 @@ import axios from "axios";
 import 'url-search-params-polyfill';
 import "./Game.css";
 
-let params = new URLSearchParams();
-params.append('Client-ID', '859alws4abzc7sq461fd4yz8wpi49q');
-params.append('Authorization', 'Bearer stc05j4qyhz5hnc4qhi6sjuxy6pmjm');
-
-const headers = {
-    'Content-Type' : 'application/json;charset=utf-8',
-    'Access-Control-Allow-Origin' : '*'
-};
-
 class Game extends React.Component{
     state = {
         isLoading : true,
         games : []
-    };    
+    };      
 
-    getGames = async() => {                       
-        // igdb 노답이라 그냥 reddit 으로 변경함 ㅎ
-        const test1 = await axios.get('https://www.reddit.com/.json?sort=new&limit=10');                       
-        console.log("fucking usa :: ", test1);        
-    };
+    callGame = async() => {
+        const result = await axios.get('http://localhost:8080/api');
+        console.log("ang ", result);
+    }
 
-    componentDidMount() {
-        this.getGames();      
+    componentDidMount() {        
+        this.callGame();
     }
 
     render() {
